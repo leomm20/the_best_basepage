@@ -1,0 +1,63 @@
+1682715821432	geckodriver	INFO	Listening on 127.0.0.1:64175
+1682715821915	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64176" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofilesyl3pf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682715822488	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682715822495	Marionette	INFO	Listening on port 64181
+Read port: 64181
+WebDriver BiDi listening on ws://127.0.0.1:64176
+1682715822706	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofilesyl3pf\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:64176/devtools/browser/20a3f972-139e-4244-82b4-c31d9ccb83a6
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 762))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 414))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.google.com."
+1682715892765	Marionette	INFO	Stopped listening on port 64181
+Dynamically enable window occlusion 1
+1682716434967	geckodriver	INFO	Listening on 127.0.0.1:64667
+1682716435482	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64668" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofilesiOW8b"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682716436018	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682716436026	Marionette	INFO	Listening on port 64673
+Read port: 64673
+WebDriver BiDi listening on ws://127.0.0.1:64668
+1682718025025	geckodriver	INFO	Listening on 127.0.0.1:50106
+1682718025529	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50107" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofileNTiIS1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682718026296	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682718026303	Marionette	INFO	Listening on port 50115
+Read port: 50115
+WebDriver BiDi listening on ws://127.0.0.1:50107
+1682718026524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofileNTiIS1\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50107/devtools/browser/d8642c21-35a5-4435-88bd-ec1e8fb61799
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 762))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 414))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.google.com."
+1682718100910	Marionette	INFO	Stopped listening on port 50115
+Dynamically enable window occlusion 1
+1682718170353	geckodriver	INFO	Listening on 127.0.0.1:50252
+1682718170860	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50253" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofileuNEZkg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682718171390	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682718171396	Marionette	INFO	Listening on port 50262
+Read port: 50262
+WebDriver BiDi listening on ws://127.0.0.1:50253
+1682718171605	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\maggiotl\\AppData\\Local\\Temp\\rust_mozprofileuNEZkg\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50253/devtools/browser/1f8f6394-1c98-4279-9bf1-9ea53940639c
+console.error: Region.sys.mjs: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 762))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.sys.mjs", 414))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.google.com."
+1682718247906	Marionette	INFO	Stopped listening on port 50262
+Dynamically enable window occlusion 1
