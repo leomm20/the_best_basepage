@@ -27,7 +27,8 @@ from webdriver_manager.microsoft import IEDriverManager
 
 class BasePage:
 
-    def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge' or 'ie' or 'safari', wait=10, highlight=False, proxy=''):
+    def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge' or 'ie' or 'safari',
+                 wait=10, highlight=False, proxy=''):
         if driver_to_use.lower() == 'firefox':
             self.driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
         elif driver_to_use.lower() == 'edge':
@@ -38,6 +39,8 @@ class BasePage:
         elif driver_to_use.lower() == 'ie':
             self.driver = webdriver.Ie(service=IEService(IEDriverManager().install()))
         elif driver_to_use.lower() == 'safari':
+            # a partir de safari 10, no hace falta descargar el webdriver, pero sí hay que habilitar
+            # safari para poder automatizar (ejecutando: safaridriver --enable)
             self.driver = webdriver.Safari()
         else:
             chrome_options = webdriver.ChromeOptions()
