@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from src.pages.the_best_basepage import BasePage
+from src.pages.base_page.the_best_basepage import BasePage
 
 
 class GooglePage(BasePage):

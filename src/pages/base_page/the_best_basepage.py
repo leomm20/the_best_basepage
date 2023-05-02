@@ -71,8 +71,8 @@ class BasePage:
     def find(self, locator):
         # TODO Cuál usar???
         # element = self.wait.until(ec.presence_of_element_located(locator))  # aún no presente
-        # element = self.wait.until(ec.visibility_of_element_located(locator))  # presente pero aún no es visible
-        element = self.wait.until(ec.element_to_be_clickable(locator))  # presente, visible y aún no es clickeable
+        element = self.wait.until(ec.visibility_of_element_located(locator))  # presente pero aún no es visible
+        # element = self.wait.until(ec.element_to_be_clickable(locator))  # presente, visible y aún no es clickeable
         if self.highlight:
             self.driver.execute_script(self.highlight_script, element)
         return element
@@ -134,9 +134,12 @@ class BasePage:
     def get_text(self, locator):
         return self.find(locator).text
 
-    def get_value_from_table(self, locator, row, column):
-        cell_need_it = locator+"/table/tbody/tr["+row+"]/td["+column+"]"
-        return self.find(cell_need_it).text
+    def get_value_from_table(self):
+        cell_need_it = '//tbody/tr/td[2]'
+        locator = cell_need_it
+        self.sleep(2)
+        print('############', locator)
+        return self.find((By.XPATH, locator)).text
 
     def set_value_on_table(self, locator, row, column, text):
         cell_to_fill = locator + "/table/tbody/tr[" + row + "]/td[" + column + "]"

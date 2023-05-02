@@ -1,4 +1,4 @@
-from src.pages.google_site.google_page import GooglePage
+from src.pages.testing_site.testing_page import TestingPage
 #
 #
 # @pytest.mark.regression
@@ -30,17 +30,15 @@ from src.pages.google_site.google_page import GooglePage
 
 
 def test_prueba():
-    g = GooglePage('chrome', highlight=True)
-    g.navigate_to_google()
-    g.enter_search_criteria('Google')
-    print('\nESTA ES LA PAGINA QUE SE PROBÓ:', g.current_url())
-    g.maximize()
-    g.highlight_web_element(g.find(g.btn_search))
-    g.sleep(5)
-    g.click_google_search()
-    assert not g.get_first_result() == 'aaoogle'
-    g.close_browser()
-    del g
+    t = TestingPage('chrome', highlight=True)
+    t.navigate_to_testing()
+    t.select_category("Básquetbol")
+    t.sleep(1)
+    t.click_btn_enviar()
+    t.switch_to_window()
+    t.navigate_to('https://www.htmlquick.com/es/form-result.php?deporte=B%C3%A1squetbol')
+    assert 'Básquetbol' == t.get_result()
+    t.close_browser()
 
 #  para ejecutar:
 #  - nombre del archivo .py debe comenzar con test_, al igual que las funciones
