@@ -80,6 +80,9 @@ class BasePage:
     def clear_text(self, locator):
         self.find(locator).clear()
 
+    def get_text(self, locator):
+        return self.find(locator).text
+
     def set_text(self, locator, text_to_write):
         self.clear_text(locator)
         self.find(locator).send_keys(text_to_write)
@@ -111,6 +114,17 @@ class BasePage:
     def sleep(sec):
         time.sleep(sec)
 
+    def switch_to_window(self, window_number):
+        # self.wait.until(ec.number_of_windows_to_be(2))
+        self.driver.switch_to.window(self.driver.window_handles[window_number])
+
+    def scroll_down(self, pixels):
+        self.driver.execute_script("window.scrollBy(0," + pixels + ")")
+
+    def get_value_from_table(self, table_locator, str_row, str_column):
+        locator = f'{table_locator}/tbody/tr[{str(str_row)}]/td[{str(str_column)}]'
+        return self.find((By.XPATH, locator)).text
+
 # SIN VALIDAR
 
     def double_click(self, locator):
@@ -131,22 +145,9 @@ class BasePage:
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.release(element)
 
-    def get_text(self, locator):
-        return self.find(locator).text
-
-    def get_value_from_table(self):
-        cell_need_it = '//tbody/tr/td[2]'
-        locator = cell_need_it
-        self.sleep(2)
-        print('############', locator)
-        return self.find((By.XPATH, locator)).text
-
     def set_value_on_table(self, locator, row, column, text):
-        cell_to_fill = locator + "/table/tbody/tr[" + row + "]/td[" + column + "]"
+        cell_to_fill = locator + f"/table/tbody/tr[{row}]/td[{column}]"
         self.find(cell_to_fill).sendKeys(text)
-
-    def scroll_down(self, pixels):
-        self.driver.execute_script("window.scrollBy(0," + pixels + ")")
 
     def scroll_to_element(self, element):
         self.driver.execute_script("arguments.scrollIntoView();", element)
@@ -238,9 +239,6 @@ class BasePage:
 
     def take_screenshot(self, filename):
         self.driver.save_screenshot(filename)
-
-    def switch_to_window(self, window):
-        self.driver.switch_to.window(window)
 
     def select_from_dropdown_by_value(self, locator, value_to_select):
         dropdown = Select(self.find(locator))

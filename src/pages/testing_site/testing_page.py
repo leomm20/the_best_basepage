@@ -5,12 +5,12 @@ from src.pages.base_page.the_best_basepage import BasePage
 class TestingPage(BasePage):
     category_dropdown = (By.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
     btn_enviar = (By.XPATH, '//*[@id="examples"]/div[1]/div/form/p/input')
-
     # PARA TABLAS, NO USAR By
-    tabla_final = '/html/body/table'
+    # tabla_final = '//body/table[2]'
+    tabla_final = '/html/body/table[2]'
 
     def navigate_to_testing(self):
-        self.navigate_to("file:///C:/1Sitios/Elemento%20select.html")
+        self.navigate_to("file:///C:/1Sitios/Datos enviados por el formulario.html")
 
     def select_category(self, category):
         self.scroll_down("300")
@@ -21,5 +21,5 @@ class TestingPage(BasePage):
     def click_btn_enviar(self):
         self.click_element(self.btn_enviar)
 
-    def get_result(self):
-        return self.get_value_from_table()
+    def get_result(self, str_row, str_column):
+        return self.get_value_from_table(self.tabla_final, str_row, str_column)

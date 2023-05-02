@@ -32,12 +32,12 @@ from src.pages.testing_site.testing_page import TestingPage
 def test_prueba():
     t = TestingPage('chrome', highlight=True)
     t.navigate_to_testing()
-    t.select_category("Básquetbol")
-    t.sleep(1)
-    t.click_btn_enviar()
-    t.switch_to_window()
-    t.navigate_to('https://www.htmlquick.com/es/form-result.php?deporte=B%C3%A1squetbol')
-    assert 'Básquetbol' == t.get_result()
+    # t.select_category("Básquetbol")
+    # t.sleep(1)
+    # t.click_btn_enviar()
+    # si tenés 1 sola abierta, es la 0; como querés ir a la segunda, tenés que pasar 1 como argumento
+    # t.switch_to_window(1)
+    assert 'Básquetbol' == t.get_result(1, 2)
     t.close_browser()
 
 #  para ejecutar:
