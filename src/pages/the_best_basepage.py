@@ -11,6 +11,8 @@ from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.ie.service import Service as IEService
+from webdriver_manager.microsoft import IEDriverManager
 
 
 # AL ESTAR DETRÁS DE UN PROXY EMPRESARIAL:
@@ -25,7 +27,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 class BasePage:
 
-    def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge', wait=10, highlight=False, proxy=''):
+    def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge' or 'ie' or 'safari', wait=10, highlight=False, proxy=''):
         if driver_to_use.lower() == 'firefox':
             self.driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
         elif driver_to_use.lower() == 'edge':
@@ -33,6 +35,10 @@ class BasePage:
             edge_options.use_chromium = True
             self.driver = webdriver.Edge(options=edge_options,
                                          service=EdgeService(EdgeChromiumDriverManager().install()))
+        elif driver_to_use.lower() == 'ie':
+            self.driver = webdriver.Ie(service=IEService(IEDriverManager().install()))
+        elif driver_to_use.lower() == 'safari':
+            self.driver = webdriver.Safari()
         else:
             chrome_options = webdriver.ChromeOptions()
             if proxy != '':
