@@ -131,6 +131,11 @@ class BasePage:
         locator = f'{table_locator}/tbody/tr[{str(str_row)}]/td[{str(str_column)}]'
         return self.find((By.XPATH, locator)).text
 
+    def scroll_to_element(self, locator):
+        element = self.find(locator)
+        self.actions.move_to_element(element).perform()
+        # self.driver.execute_script("arguments.scrollIntoView();", element)
+
 # SIN VALIDAR
 
     def double_click(self, locator):
@@ -154,9 +159,6 @@ class BasePage:
     def set_value_on_table(self, locator, row, column, text):
         cell_to_fill = locator + f"/table/tbody/tr[{row}]/td[{column}]"
         self.find(cell_to_fill).sendKeys(text)
-
-    def scroll_to_element(self, element):
-        self.driver.execute_script("arguments.scrollIntoView();", element)
 
     def execute_script(self, js_script):
         # Javascript script
