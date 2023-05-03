@@ -55,6 +55,9 @@ class BasePage:
         self.highlight = highlight
         self.highlight_script = "arguments[0].style.border='10px ridge #d92356'"
 
+    def get_title(self):
+        return self.driver.title
+
 # VALIDADOS
     def navigate_to(self, url):
         self.driver.get(url)
@@ -297,9 +300,6 @@ class BasePage:
 
     def wait_for_element_to_be_clickable(self, element):
         self.wait.until(ec.element_to_be_clickable(element))
-
-    def get_title(self, title):
-        return self.wait.until(ec.title_is(title))
 
     def get_attribute(self, attribute_name):
         return self.get_attribute(attribute_name)

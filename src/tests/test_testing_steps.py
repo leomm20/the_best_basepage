@@ -36,7 +36,9 @@ def test_prueba():
     t.sleep(1)
     t.click_btn_enviar()
     # si tenés 1 sola abierta, es la 0; como querés ir a la segunda, tenés que pasar 1 como argumento
+    print('\n\n##############\n', t.get_title(), '\n##############\n')
     t.switch_to_window(1)
+    print('\n\n##############\n', t.get_title(), '\n##############\n')
     assert 'Básquetbol' == t.get_result(1, 2)
     t.close_browser()
 
