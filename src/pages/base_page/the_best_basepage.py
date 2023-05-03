@@ -148,12 +148,10 @@ class BasePage:
 # SIN VALIDAR
 
     def double_click(self, locator):
-        # TODO Cuál usar???
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.double_click(element)
 
     def right_click(self, locator):
-        # TODO Cuál usar???
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.context_click(element)
 
