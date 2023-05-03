@@ -128,6 +128,8 @@ class BasePage:
         self.driver.execute_script("window.scrollBy(0," + pixels + ")")
 
     def get_value_from_table(self, table_locator, str_row, str_column):
+        # PARA TABLAS, NO USAR "By" al llamar a la función,
+        # sólo pasar string de XPATH, porque luego se completará con row y column
         locator = f'{table_locator}/tbody/tr[{str(str_row)}]/td[{str(str_column)}]'
         return self.find((By.XPATH, locator)).text
 
