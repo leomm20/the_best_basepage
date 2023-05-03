@@ -70,10 +70,9 @@ class BasePage:
         self.driver.quit()
 
     def find(self, locator):
-        # TODO Cuál usar???
         # element = self.wait.until(ec.presence_of_element_located(locator))  # espera que esté presente
-        element = self.wait.until(ec.visibility_of_element_located(locator))  # presente, espera que esté visible
-        # element = self.wait.until(ec.element_to_be_clickable(locator))  # presente y visible, espera que sea clickable
+        element = self.wait.until(ec.visibility_of_element_located(locator))  # espera que esté visible
+        # element = self.wait.until(ec.element_to_be_clickable(locator))  # espera que sea clickable
         if self.highlight:
             self.driver.execute_script(self.highlight_script, element)
         return element
@@ -117,6 +116,7 @@ class BasePage:
 
     def switch_to_window(self, window_number):
         # self.wait.until(ec.number_of_windows_to_be(2))
+        self.sleep(2)
         try:
             self.driver.switch_to.window(self.driver.window_handles[window_number])
         except IndexError as err:
