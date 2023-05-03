@@ -6,7 +6,6 @@ class TestingPage(BasePage):
     category_dropdown = (By.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
     btn_enviar = (By.XPATH, '//*[@id="examples"]/div[1]/div/form/p/input')
     # PARA TABLAS, NO USAR By
-    # tabla_final = '//body/table[2]'
     tabla_final = '/html/body/table[2]'
 
     def navigate_to_testing(self):
