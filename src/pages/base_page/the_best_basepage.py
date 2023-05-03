@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from selenium.common import NoSuchWindowException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -116,7 +117,12 @@ class BasePage:
 
     def switch_to_window(self, window_number):
         # self.wait.until(ec.number_of_windows_to_be(2))
-        self.driver.switch_to.window(self.driver.window_handles[window_number])
+        try:
+            self.driver.switch_to.window(self.driver.window_handles[window_number])
+        except IndexError as err:
+            print(f'\n\n##############\nNo existe la ventana "{window_number}":', err, '\n##############\n')
+        except Exception as err:
+            print('\n\n##############\nSalió por error general:', err, '\n##############\n')
 
     def scroll_down(self, pixels):
         self.driver.execute_script("window.scrollBy(0," + pixels + ")")
