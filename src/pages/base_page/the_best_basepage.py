@@ -71,9 +71,9 @@ class BasePage:
 
     def find(self, locator):
         # TODO Cuál usar???
-        # element = self.wait.until(ec.presence_of_element_located(locator))  # aún no presente
-        element = self.wait.until(ec.visibility_of_element_located(locator))  # presente pero aún no es visible
-        # element = self.wait.until(ec.element_to_be_clickable(locator))  # presente, visible y aún no es clickeable
+        # element = self.wait.until(ec.presence_of_element_located(locator))  # espera que esté presente
+        element = self.wait.until(ec.visibility_of_element_located(locator))  # presente, espera que esté visible
+        # element = self.wait.until(ec.element_to_be_clickable(locator))  # presente y visible, espera que sea clickable
         if self.highlight:
             self.driver.execute_script(self.highlight_script, element)
         return element
@@ -125,7 +125,10 @@ class BasePage:
             print('\n\n##############\nSalió por error general:', err, '\n##############\n')
 
     def scroll_down(self, pixels):
-        self.driver.execute_script("window.scrollBy(0," + pixels + ")")
+        self.execute_script(f"window.scrollBy(0,{pixels})")
+
+    def execute_script(self, js_script):
+        return self.driver.execute_script(js_script)
 
     def get_value_from_table(self, table_locator, str_row, str_column):
         # PARA TABLAS, NO USAR "By" al llamar a la función,
@@ -162,10 +165,6 @@ class BasePage:
     def set_value_on_table(self, locator, row, column, text):
         cell_to_fill = locator + f"/table/tbody/tr[{row}]/td[{column}]"
         self.find(cell_to_fill).sendKeys(text)
-
-    def execute_script(self, js_script):
-        # Javascript script
-        return self.driver.execute_script(js_script, self)
 
     def switch_to_iframe(self, iframe):
         self.driver.switch_to.frame(iframe)
