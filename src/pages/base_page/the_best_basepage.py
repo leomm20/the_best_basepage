@@ -137,6 +137,7 @@ class BasePage:
         element = self.find(locator)
         self.actions.move_to_element(element).perform()
         # self.driver.execute_script("arguments.scrollIntoView();", element)
+        # element.location_once_scrolled_into_view
 
 # SIN VALIDAR
 
