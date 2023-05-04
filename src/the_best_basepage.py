@@ -100,9 +100,6 @@ class BasePage:
     def current_url(self):
         return self.driver.current_url
 
-    def handle_popup_window(self, window):
-        self.driver.switch_to.window(window)
-
     def maximize(self):
         self.driver.maximize_window()
 
@@ -124,9 +121,9 @@ class BasePage:
             print('\n\n##############\nSalió por error general:', err, '\n##############\n')
 
     def scroll_down(self, pixels):
-        self.execute_script(f"window.scrollBy(0,{pixels})")
+        self.execute_js_script(f"window.scrollBy(0,{pixels})")
 
-    def execute_script(self, js_script):
+    def execute_js_script(self, js_script):
         return self.driver.execute_script(js_script)
 
     def get_value_from_table(self, table_locator, str_row, str_column):
@@ -141,8 +138,6 @@ class BasePage:
         # self.driver.execute_script("arguments.scrollIntoView();", element)
         # element.location_once_scrolled_into_view
 
-# SIN VALIDAR
-
     def double_click(self, locator):
         element = self.find(locator)
         self.actions.double_click(element).perform()
@@ -151,6 +146,13 @@ class BasePage:
         element = self.find(locator)
         self.actions.context_click(element).perform()
 
+    def accept_alert(self):
+        self.driver.switch_to.alert.dismiss()
+
+    def take_screenshot(self, filename):
+        self.driver.save_screenshot(filename)
+
+# SIN VALIDAR
     def click_and_hold(self, locator):
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.click_and_hold(element)
@@ -171,10 +173,6 @@ class BasePage:
 
     def switch_to_parent_frame(self):
         self.driver.switch_to.parent_frame()
-
-    def accept_alert(self):
-        # self.wait.until(ec.alert_is_present()).accept()
-        self.driver.switch_to.alert.dismiss()  # freerangetester
 
     def accept_alert_with_text_input(self, text):
         try:
@@ -240,9 +238,6 @@ class BasePage:
         except Exception as err:
             print("Exception:", err)
             return False
-
-    def take_screenshot(self, filename):
-        self.driver.save_screenshot(filename)
 
     def select_from_dropdown_by_value(self, locator, value_to_select):
         dropdown = Select(self.find(locator))

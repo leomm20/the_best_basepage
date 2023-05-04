@@ -12,6 +12,7 @@ def test_prueba():
     t.switch_to_window(1)
     print('\n############## Tab:', t.get_title(), '##############\n')
     assert 'Básquetbol' == t.get_result(1, 2)
+    t.take_screenshot('2023_testing_page.png')
     t.close_browser()
 
 #  para ejecutar:
