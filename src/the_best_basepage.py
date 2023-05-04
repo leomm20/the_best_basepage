@@ -91,7 +91,8 @@ class BasePage:
         self.find(locator).send_keys(text_to_write)
 
     def click_element(self, locator):
-        self.wait.until(ec.element_to_be_clickable(locator)).click()
+        element = self.wait.until(ec.element_to_be_clickable(locator))
+        element.click()
         # self.actions.click(self.find(locator))
         # self.find(locator).click()
         """
@@ -100,6 +101,9 @@ class BasePage:
         If the element is immediately clickable, use either the second or third code snippet.
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'myButton'))) => si no, TimeoutException
         """
+        if self.highlight:
+            self.driver.execute_script(self.highlight_script, element)
+        return element
 
     def current_url(self):
         return self.driver.current_url
@@ -148,12 +152,12 @@ class BasePage:
 # SIN VALIDAR
 
     def double_click(self, locator):
-        element = self.wait.until(ec.element_to_be_clickable(locator))
-        self.actions.double_click(element)
+        element = self.find(locator)
+        self.actions.double_click(element).perform()
 
     def right_click(self, locator):
-        element = self.wait.until(ec.element_to_be_clickable(locator))
-        self.actions.context_click(element)
+        element = self.find(locator)
+        self.actions.context_click(element).perform()
 
     def click_and_hold(self, locator):
         element = self.wait.until(ec.element_to_be_clickable(locator))
@@ -177,11 +181,8 @@ class BasePage:
         self.driver.switch_to.parent_frame()
 
     def accept_alert(self):
-        try:
-            self.wait.until(ec.alert_is_present()).accept()
-            # self.driver.switch_to().alert().dismiss()  # freerangetester
-        except Exception as err:
-            print('No apareció la alerta', err)
+        # self.wait.until(ec.alert_is_present()).accept()
+        self.driver.switch_to.alert.dismiss()  # freerangetester
 
     def accept_alert_with_text_input(self, text):
         try:

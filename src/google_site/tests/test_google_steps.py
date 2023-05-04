@@ -1,4 +1,4 @@
-from src.pages.testing_site.testing_page import TestingPage
+from src.google_site.pages.google_page import GooglePage
 #
 #
 # @pytest.mark.regression
@@ -30,17 +30,17 @@ from src.pages.testing_site.testing_page import TestingPage
 
 
 def test_prueba():
-    t = TestingPage('chrome', highlight=True)
-    t.navigate_to_testing()
-    t.select_category("Básquetbol")
-    t.sleep(1)
-    t.click_btn_enviar()
-    # si tenés 1 sola abierta, es la 0; como querés ir a la segunda, tenés que pasar 1 como argumento
-    print('\n\n############## Tab:', t.get_title(), '##############\n')
-    t.switch_to_window(1)
-    print('\n############## Tab:', t.get_title(), '##############\n')
-    assert 'Básquetbol' == t.get_result(1, 2)
-    t.close_browser()
+    g = GooglePage('chrome', highlight=True)
+    g.navigate_to_google()
+    g.enter_search_criteria('Google')
+    print('\nESTA ES LA PAGINA QUE SE PROBÓ:', g.current_url())
+    g.maximize()
+    g.highlight_web_element(g.find(g.btn_search))
+    g.sleep(5)
+    g.click_google_search()
+    assert not g.get_first_result() == 'aaoogle'
+    g.close_browser()
+    del g
 
 #  para ejecutar:
 #  - nombre del archivo .py debe comenzar con test_, al igual que las funciones
