@@ -4,10 +4,12 @@ from src.testing_site.pages.testing_page import TestingPage
 def test_prueba():
     t = TestingPage('chrome', highlight=True)
     t.navigate_to(t.url)
-    t.navigate_to_testing()
-    t.select_category("Básquetbol")
+    # t.scroll_down("300")
+    t.scroll_to_element(t.combo_deportes)
     t.sleep(1)
-    t.click_btn_enviar()
+    t.select_from_dropdown_by_text(t.category_dropdown, 'Básquetbol')
+    t.sleep(1)
+    t.click_element(t.btn_enviar)
     # si tenés 1 sola abierta, es la 0; como querés ir a la segunda, tenés que pasar 1 como argumento
     print('\n\n############## Tab:', t.get_title(), '##############\n')
     t.switch_to_window(1)
