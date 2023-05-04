@@ -93,7 +93,8 @@ class BasePage:
     def click_element(self, locator):
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.move_to_element(element).click_and_hold().perform()
-        self.driver.execute_script(self.highlight_script, element)
+        if self.highlight:
+            self.driver.execute_script(self.highlight_script, element)
         self.actions.release().perform()
         return element
 
