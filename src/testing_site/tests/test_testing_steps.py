@@ -1,32 +1,4 @@
 from src.testing_site.pages.testing_page import TestingPage
-#
-#
-# @pytest.mark.regression
-# def test_google_page():
-#     g = GooglePage(driver)
-#     g.navigate_to_google()
-#     g.enter_search_criteria('Google')
-#     g.click_google_search()
-#     assert g.get_first_result() == 'Google'
-#
-#
-# @pytest.mark.smoke
-# def test_google_page_error():
-#     g = GooglePage(driver)
-#     g.navigate_to_google()
-#     g.enter_search_criteria('Google')
-#     g.click_google_search()
-#     assert not g.get_first_result() == 'aaoogle'
-#
-#
-# @pytest.mark.regression
-# @pytest.mark.smoke
-# def test_google_page_error2():
-#     g = GooglePage(driver)
-#     g.navigate_to_google()
-#     g.enter_search_criteria('Google')
-#     g.click_google_search()
-#     assert not g.get_first_result() == 'aaoogle'
 
 
 def test_prueba():

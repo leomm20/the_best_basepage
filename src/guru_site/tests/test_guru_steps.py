@@ -1,4 +1,4 @@
-from src.guru_site import GuruPage
+from src.guru_site.pages.guru_page import GuruPage
 
 
 def test_prueba():
@@ -16,3 +16,4 @@ def test_prueba():
     g.accept_alert()
     g.sleep(1)
     g.close_browser()
+    del g
