@@ -92,17 +92,9 @@ class BasePage:
 
     def click_element(self, locator):
         element = self.wait.until(ec.element_to_be_clickable(locator))
-        element.click()
-        # self.actions.click(self.find(locator))
-        # self.find(locator).click()
-        """
-        Cuál usar??? Según perplexity:
-        if the element is not immediately clickable and needs to be waited for, use the first code snippet.
-        If the element is immediately clickable, use either the second or third code snippet.
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'myButton'))) => si no, TimeoutException
-        """
-        if self.highlight:
-            self.driver.execute_script(self.highlight_script, element)
+        self.actions.move_to_element(element).click_and_hold().perform()
+        self.driver.execute_script(self.highlight_script, element)
+        self.actions.release().perform()
         return element
 
     def current_url(self):
