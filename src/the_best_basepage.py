@@ -1,6 +1,7 @@
+import os.path
+from datetime import datetime
 import time
 from selenium import webdriver
-from selenium.common import NoSuchWindowException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -149,8 +150,11 @@ class BasePage:
     def accept_alert(self):
         self.driver.switch_to.alert.dismiss()
 
-    def take_screenshot(self, filename):
-        self.driver.save_screenshot(filename)
+    def take_screenshot(self, title):
+        date = datetime.now().strftime('%Y%m%d_%H%M%S')
+        if not os.path.exists(os.path.join(os.getcwd(), 'screenshots')):
+            os.mkdir('screenshots')
+        self.driver.save_screenshot('screenshots/'+title+'_'+date+'.png')
 
 # SIN VALIDAR
     def click_and_hold(self, locator):

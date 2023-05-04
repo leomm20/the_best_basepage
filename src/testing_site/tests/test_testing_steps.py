@@ -3,6 +3,7 @@ from src.testing_site.pages.testing_page import TestingPage
 
 def test_prueba():
     t = TestingPage('chrome', highlight=True)
+    t.navigate_to(t.url)
     t.navigate_to_testing()
     t.select_category("Básquetbol")
     t.sleep(1)
@@ -11,8 +12,9 @@ def test_prueba():
     print('\n\n############## Tab:', t.get_title(), '##############\n')
     t.switch_to_window(1)
     print('\n############## Tab:', t.get_title(), '##############\n')
-    assert 'Básquetbol' == t.get_result(1, 2)
-    t.take_screenshot('2023_testing_page.png')
+    # assert 'Básquetbol' == t.get_result(1, 2)
+    assert 'Básquetbol' == t.get_value_from_table(t.tabla_final, 1, 2)
+    t.take_screenshot(t.get_title())
     t.close_browser()
 
 #  para ejecutar:

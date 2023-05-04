@@ -8,9 +8,10 @@ class TestingPage(BasePage):
     combo_deportes = (By.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
     # PARA TABLAS, NO USAR "By", sólo pasar string de XPATH, porque luego se completará con row y column
     tabla_final = '/html/body/table[1]'
+    url = "https://www.htmlquick.com/es/reference/tags/select.html"
 
     def navigate_to_testing(self):
-        self.navigate_to("https://www.htmlquick.com/es/reference/tags/select.html")
+        self.navigate_to(self.url)
 
     def select_category(self, category):
         # self.scroll_down("300")
