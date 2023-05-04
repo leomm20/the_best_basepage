@@ -14,10 +14,10 @@ def test_prueba():
     print('\n\n############## Tab:', t.get_title(), '##############\n')
     t.switch_to_window(1)
     print('\n############## Tab:', t.get_title(), '##############\n')
-    # assert 'Básquetbol' == t.get_result(1, 2)
     assert 'Básquetbol' == t.get_value_from_table(t.tabla_final, 1, 2)
     t.take_screenshot(t.get_title())
     t.close_browser()
+
 
 #  para ejecutar:
 #  - nombre del archivo .py debe comenzar con test_, al igual que las funciones
