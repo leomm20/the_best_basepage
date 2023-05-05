@@ -26,6 +26,9 @@ from webdriver_manager.microsoft import IEDriverManager
 #     url=url, verify=False, stream=True, **kwargs)
 # TENER EN CUENTA QUE SI SE ACTUALIZA LA LIBRERÍA, HABRÁ QUE VOLVER A HACERLO!!
 
+class by(By):
+    pass
+
 
 class BasePage:
 
