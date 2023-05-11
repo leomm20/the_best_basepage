@@ -1,10 +1,10 @@
--Para utilizar los reportes de Allure con Python, Selenium y Pytest, necesitarás seguir los siguientes pasos:
+hola -Para utilizar los reportes de Allure con Python, Selenium y Pytest, necesitarás seguir los siguientes pasos:
 
 Instalar Allure: En primer lugar, debes instalar Allure en tu máquina. Para hacerlo, puedes seguir las instrucciones de la página oficial de Allure: https://docs.qameta.io/allure/#_installing_a_commandline. Asegúrate de agregar la ubicación de Allure a tu variable PATH para poder acceder a los comandos de Allure desde cualquier directorio.
 
 Instalar los paquetes necesarios: Asegúrate de tener instalados los siguientes paquetes:
 
-pytestgi
+pytest
 
 pytest-xdist
 
