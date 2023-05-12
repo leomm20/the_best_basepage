@@ -159,7 +159,7 @@ class BasePage:
             os.mkdir('screenshots')
         self.driver.save_screenshot('screenshots/'+title+'_'+date+'.png')
 
-# SIN VALIDAR
+# SIN VALIDADO
     def click_and_hold(self, locator):
         element = self.wait.until(ec.element_to_be_clickable(locator))
         self.actions.click_and_hold(element)
