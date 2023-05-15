@@ -1,9 +1,9 @@
-from src.the_best_basepage import BasePage, by
+from src.the_best_basepage import BasePage as bp # , by
 
 
-class TestingPage(BasePage):
+class TestingPage(bp):
 
-    bla = (by.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
+    bla = (bp.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
     category_dropdown = (by.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
     btn_enviar = (by.XPATH, '//*[@id="examples"]/div[1]/div/form/p/input')
     combo_deportes = (by.XPATH, '//*[@id="examples"]/div[1]/div/form/p/select')
