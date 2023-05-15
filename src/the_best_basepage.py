@@ -26,11 +26,11 @@ from webdriver_manager.microsoft import IEDriverManager
 #     url=url, verify=False, stream=True, **kwargs)
 # TENER EN CUENTA QUE SI SE ACTUALIZA LA LIBRERÍA, HABRÁ QUE VOLVER A HACERLO!!
 
-class by(By):
-    pass
+# class by(By):
+#     pass
 
 
-class BasePage:
+class BasePage(By):
 
     def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge' or 'ie' or 'safari',
                  wait=10, highlight=False, proxy=''):
@@ -160,13 +160,19 @@ class BasePage:
         self.driver.save_screenshot('screenshots/'+title+'_'+date+'.png')
 
 # SIN VALIDADO
-    def click_and_hold(self, locator):
+    def click_and_hold(self, locator, sec=0):
         element = self.wait.until(ec.element_to_be_clickable(locator))
-        self.actions.click_and_hold(element)
 
-    def release(self, locator):
-        element = self.wait.until(ec.element_to_be_clickable(locator))
-        self.actions.release(element)
+        if sec == 0:
+            self.actions.click_and_hold(element)
+        else:
+            self.sleep(sec)
+            self.actions.release(element)
+
+
+    # def release(self, locator):
+    #     element = self.wait.until(ec.element_to_be_clickable(locator))
+    #     self.actions.release(element)
 
     def set_value_on_table(self, locator, row, column, text):
         cell_to_fill = locator + f"/table/tbody/tr[{row}]/td[{column}]"
