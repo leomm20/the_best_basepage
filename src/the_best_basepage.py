@@ -31,7 +31,7 @@ from webdriver_manager.microsoft import IEDriverManager
 
 
 class BasePage(By):
-
+    # probando git pull
     def __init__(self, driver_to_use='chrome' or 'firefox' or 'edge' or 'ie' or 'safari',
                  wait=10, highlight=False, proxy=''):
         if driver_to_use.lower() == 'firefox':
