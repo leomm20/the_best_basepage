@@ -4,7 +4,19 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import allure
 import pytest
-
+# ------------------------------
+# https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.22.1/allure-commandline-2.22.1.zip
+# unpack en c:\
+#
+# pip install allure-pytest
+#
+# ejecutar pytest:
+# pytest -v -s --alluredir="C:\RUTA\allurereportsdemo\reports" allurereportsdemo\test_
+# orangehrm.py
+#
+# ejecutar reporte allure:
+# allure serve C:\RUTA\allurereportsdemo\reports
+# -------------------------------
 
 @allure.severity(allure.severity_level.NORMAL)
 class TestHRM:
